@@ -24,10 +24,12 @@
 console.log('hi')
 /*-------------------------------- Constants --------------------------------*/
 
-
+const winningCombos = [
+	[2,4,6], [3,4,5], [6,7,8], [0,4,8], [2,5,8], [1,4,7], [0,3,6], [0,1,2]
+]
 
 /*---------------------------- Variables (state) ----------------------------
-
+let turn, winner, board, playerX, PlayerO
 var squaresArray = [sq0, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8];
 var turn = [-1, 1]
 var winner = [gameStateWinner, gameStateTie, gameStateInPlay];
@@ -35,6 +37,16 @@ squaresArray.map
 
 
 /*------------------------ Cached Element References ------------------------
+const sq0 = document.getElementbyId("sq0")
+const sq1 = document.getElementbyId("sq1")
+const sq2 = document.getElementbyId("sq2")
+const sq3 = document.getElementbyId("sq3")
+const sq4 = document.getElementbyId("sq4")
+const sq5 = document.getElementbyId("sq5")
+const sq6 = document.getElementbyId("sq6")
+const sq7 = document.getElementbyId("sq7")
+const sq8 = document.getElementbyId("sq8")
+
 
 let squareChoice = domument.querySelector(".board")
 	let squaresArray.map
@@ -148,3 +160,13 @@ function handleClick(evt) {
 
   board.addEventListener("click", handleClick)
 
+  function handleClick(event) {
+    let sqIdx = (event.target.id).replace('sq','')
+    if ((boardArr[sqIdx]) === 1 || -1) {
+      return
+    }
+    if (winner !== null) {
+      return
+    }
+    boardArr[sqIdx] = turn
+    turn = turn * -1
